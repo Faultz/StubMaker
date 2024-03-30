@@ -604,8 +604,6 @@ fun:
 	clock_gettime
 	fstat
 	unlink
-	sceKernelInstallExceptionHandler
-	sceKernelRemoveExceptionHandler
 	sigaction
 	sigemptyset
 	pthread_get_user_context_np

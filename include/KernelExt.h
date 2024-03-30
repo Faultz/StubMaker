@@ -5,6 +5,27 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+	/*
+		pthread_get_user_context_np
+		pthread_set_user_context_np
+		sceKernelInstallExceptionHandler
+		sceKernelRemoveExceptionHandler
+		sigaction
+		sigemptyset
+	*/
+	// exceptions
+	int sceDbgInstallExceptionHandler(int en, SceDbgExceptionHandler handler);
+	int sceDbgRemoveExceptionHandler(int en);
+	int sigaction(int, struct sigaction*, struct sigaction*);
+	int sigemptyset(sigset_t* set);
+
+	// thread
+	int pthread_get_user_context_np(thread* thr, SceDbgUcontext* context);
+	int pthread_set_user_context_np(thread* thr, SceDbgUcontext* context);
+	int pthread_suspend_np(thread* thr);
+	int pthread_resume_np(thread* thr);
+	int pthread_suspend_all_np();
+	int pthread_resume_all_np();
 
 	int sceKernelSendNotificationRequest(int device, SceNotificationRequest* req, size_t size, int blocking);
 	int sceKernelGetAppInfo(int pid, SceAppInfo* info);

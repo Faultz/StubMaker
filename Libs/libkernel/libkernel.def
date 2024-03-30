@@ -612,5 +612,9 @@ fun:
 	pthread_resume_np
 	pthread_suspend_all_np
 	pthread_resume_all_np
+	scePthreadSuspend
+	scePthreadResume
+	scePthreadSuspendAll
+	scePthreadResumeAll
 obj:
 	__stack_chk_guard

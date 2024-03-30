@@ -20,12 +20,19 @@ extern "C" {
 	int sigemptyset(sigset_t* set);
 
 	// thread
+	int pthread_suspend_user_context_np(thread* thr);
+	int pthread_resume_user_context_np(thread* thr);
 	int pthread_get_user_context_np(thread* thr, SceDbgUcontext* context);
 	int pthread_set_user_context_np(thread* thr, SceDbgUcontext* context);
 	int pthread_suspend_np(thread* thr);
 	int pthread_resume_np(thread* thr);
 	int pthread_suspend_all_np();
 	int pthread_resume_all_np();
+
+	int scePthreadSuspend(thread* thr);
+	int scePthreadResume(thread* thr);
+	int scePthreadSuspendAll();
+	int scePthreadResumeAll();
 
 	int sceKernelSendNotificationRequest(int device, SceNotificationRequest* req, size_t size, int blocking);
 	int sceKernelGetAppInfo(int pid, SceAppInfo* info);
